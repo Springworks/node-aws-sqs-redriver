@@ -4,7 +4,7 @@
   "description": "Re-drives messages from one SQS queue to another, e.g. to re-process \"dead letters\"",
   "main": "index.js",
   "scripts": {
-    
+    "lint": "eslint --cache ."
   },
   "repository": {
     "type": "git",
@@ -21,5 +21,14 @@
   "bugs": {
     "url": "https://github.com/Springworks/node-aws-sqs-redriver/issues"
   },
-  "homepage": "https://github.com/Springworks/node-aws-sqs-redriver#readme"
+  "homepage": "https://github.com/Springworks/node-aws-sqs-redriver#readme",
+  "devDependencies": {
+    "babel-eslint": "6.1.2",
+    "eslint": "3.5.0",
+    "eslint-config-springworks": "7.0.6",
+    "eslint-plugin-import": "1.15.0",
+    "eslint-plugin-mocha": "4.5.1",
+    "eslint-plugin-should-promised": "1.0.8",
+    "eslint-plugin-springworks": "2.0.1"
+  }
 }
