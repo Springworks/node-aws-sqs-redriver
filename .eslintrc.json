@@ -1,5 +1,6 @@
 {
   "extends": "springworks/babel",
   "rules": {
+    "no-console": 0
   }
 }
