@@ -6,7 +6,12 @@
   "scripts": {
     "lint": "eslint --cache .",
     "build": "rm -rf build && babel src --out-dir build",
-    "prepublish": "npm run build"
+    "prepublish": "npm run build",
+    "test": "NODE_ENV=test istanbul cover _mocha",
+    "test-no-cov": "NODE_ENV=test mocha",
+    "test-acceptance": "NODE_ENV=test istanbul cover _mocha -- --fgrep '/acceptance/'",
+    "test-component": "NODE_ENV=test istanbul cover _mocha -- --fgrep '/component/'",
+    "test-unit": "NODE_ENV=test istanbul cover _mocha -- --fgrep '/unit/'"
   },
   "repository": {
     "type": "git",
@@ -25,6 +30,7 @@
   },
   "homepage": "https://github.com/Springworks/node-aws-sqs-redriver#readme",
   "devDependencies": {
+    "@springworks/test-harness": "1.4.3",
     "babel-cli": "6.14.0",
     "babel-core": "6.14.0",
     "babel-eslint": "6.1.2",
@@ -37,7 +43,9 @@
     "eslint-plugin-import": "1.15.0",
     "eslint-plugin-mocha": "4.5.1",
     "eslint-plugin-should-promised": "1.0.8",
-    "eslint-plugin-springworks": "2.0.1"
+    "eslint-plugin-springworks": "2.0.1",
+    "istanbul": "0.4.5",
+    "mocha": "3.0.2"
   },
   "dependencies": {}
 }
