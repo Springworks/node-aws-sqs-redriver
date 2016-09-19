@@ -1,6 +1,5 @@
 {
   "name": "aws-sqs-redriver",
-  "version": "1.0.0",
   "description": "Re-drives messages from one SQS queue to another, e.g. to re-process \"dead letters\"",
   "main": "index.js",
   "scripts": {
@@ -11,11 +10,12 @@
     "test-no-cov": "NODE_ENV=test mocha",
     "test-acceptance": "NODE_ENV=test istanbul cover _mocha -- --fgrep '/acceptance/'",
     "test-component": "NODE_ENV=test istanbul cover _mocha -- --fgrep '/component/'",
-    "test-unit": "NODE_ENV=test istanbul cover _mocha -- --fgrep '/unit/'"
+    "test-unit": "NODE_ENV=test istanbul cover _mocha -- --fgrep '/unit/'",
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Springworks/node-aws-sqs-redriver.git"
+    "url": "https://github.com/Springworks/node-aws-sqs-redriver.git"
   },
   "keywords": [
     "aws",
@@ -45,7 +45,8 @@
     "eslint-plugin-should-promised": "1.0.8",
     "eslint-plugin-springworks": "2.0.1",
     "istanbul": "0.4.5",
-    "mocha": "3.0.2"
+    "mocha": "3.0.2",
+    "semantic-release": "4.3.5"
   },
   "dependencies": {}
 }
