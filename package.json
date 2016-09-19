@@ -1,0 +1,25 @@
+{
+  "name": "aws-sqs-redriver",
+  "version": "1.0.0",
+  "description": "Re-drives messages from one SQS queue to another, e.g. to re-process \"dead letters\"",
+  "main": "index.js",
+  "scripts": {
+    
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Springworks/node-aws-sqs-redriver.git"
+  },
+  "keywords": [
+    "aws",
+    "sqs",
+    "redrive",
+    "lambda"
+  ],
+  "author": "Springworks <hello@springworks.se> (http://www.springworks.se)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Springworks/node-aws-sqs-redriver/issues"
+  },
+  "homepage": "https://github.com/Springworks/node-aws-sqs-redriver#readme"
+}
