@@ -9,6 +9,8 @@ Meant to be triggered by an SNS notification and run on a Lambda.
 
 Moves messages from `source_queue_url` to `target_queue_url`, which should be defined as stringified JSON in the event `Message`.
 
+*NOTE*: When added to `target_queue_url`, the message will only include the `MessageBody` property, not any `MessageAttributes` or other properties of the message in the source queue.
+
 #### Example
 
 ```js
