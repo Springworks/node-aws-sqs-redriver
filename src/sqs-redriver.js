@@ -63,14 +63,14 @@ function receiveMessage({ source_queue_url }) {
       MaxNumberOfMessages: 1,
       QueueUrl: source_queue_url,
       WaitTimeSeconds: 20,
-    }, (err, messages) => {
+    }, (err, data) => {
       if (err) {
         reject(err);
         return;
       }
 
-      if (messages.length) {
-        resolve(messages[0]);
+      if (data.Messages && data.Messages.length) {
+        resolve(data.Messages[0]);
         return;
       }
 
