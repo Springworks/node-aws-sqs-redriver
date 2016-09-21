@@ -58,7 +58,7 @@ describe('test/unit/sqs-redriver-test.js', () => {
             return redriver.redriveMessages(params).should.be.fulfilledWith(null);
           });
 
-          it('should fetch 1 message at a time from source queue and iterate 3 times (resolve when not getting any message)', () => {
+          it('should long poll 1 message at a time from source queue and iterate 3 times (resolve when not getting any message)', () => {
             return redriver.redriveMessages(params).then(() => {
               receive_message_stub.should.have.callCount(3);
 
@@ -66,6 +66,7 @@ describe('test/unit/sqs-redriver-test.js', () => {
                 call.args[0].should.eql({
                   MaxNumberOfMessages: 1,
                   QueueUrl: test_queue_params.source_queue_url,
+                  WaitTimeSeconds: 20,
                 });
               });
             });

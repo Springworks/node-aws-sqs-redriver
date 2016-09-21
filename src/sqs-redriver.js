@@ -50,6 +50,7 @@ function fetchMessagesUntilEmpty({ source_queue_url, target_queue_url }) {
 }
 
 function redriveMessage({ sqs_message, source_queue_url, target_queue_url }) {
+  console.log('Redriving message with receipt handle %s...', sqs_message.ReceiptHandle);
   return sendMessage({ message_body: sqs_message.Body, target_queue_url })
       .then(() => deleteMessage({ receipt_handle: sqs_message.ReceiptHandle, source_queue_url }))
       .then(() => console.log(`Message moved from ${source_queue_url} to ${target_queue_url}`))
@@ -61,6 +62,7 @@ function receiveMessage({ source_queue_url }) {
     sqs_instance.receiveMessage({
       MaxNumberOfMessages: 1,
       QueueUrl: source_queue_url,
+      WaitTimeSeconds: 20,
     }, (err, messages) => {
       if (err) {
         reject(err);
@@ -72,6 +74,7 @@ function receiveMessage({ source_queue_url }) {
         return;
       }
 
+      console.log('No more messages received in queue...');
       resolve(null);
     });
   });
