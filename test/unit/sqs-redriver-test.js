@@ -39,9 +39,9 @@ describe('test/unit/sqs-redriver-test.js', () => {
           beforeEach('mockReceiveTwoMessages', () => {
             first_message = mockIncompleteButSufficientSqsMessage('first');
             second_message = mockIncompleteButSufficientSqsMessage('second');
-            receive_message_stub.onCall(0).yieldsAsync(null, [first_message]);
-            receive_message_stub.onCall(1).yieldsAsync(null, [second_message]);
-            receive_message_stub.onCall(2).yieldsAsync(null, []);
+            receive_message_stub.onCall(0).yieldsAsync(null, mockReceivedMessageResponse(first_message));
+            receive_message_stub.onCall(1).yieldsAsync(null, mockReceivedMessageResponse(second_message));
+            receive_message_stub.onCall(2).yieldsAsync(null, mockReceivedMessageResponse(null));
           });
 
           beforeEach('mockSendMessage', () => {
@@ -137,8 +137,8 @@ describe('test/unit/sqs-redriver-test.js', () => {
 
           beforeEach('mockReceiveOneMessage', () => {
             first_message = mockIncompleteButSufficientSqsMessage('first');
-            receive_message_stub.onCall(0).yieldsAsync(null, [first_message]);
-            receive_message_stub.onCall(1).yieldsAsync(null, []);
+            receive_message_stub.onCall(0).yieldsAsync(null, mockReceivedMessageResponse(first_message));
+            receive_message_stub.onCall(1).yieldsAsync(null, mockReceivedMessageResponse(null));
           });
 
           beforeEach('mockSendMessage', () => {
@@ -162,8 +162,8 @@ describe('test/unit/sqs-redriver-test.js', () => {
 
           beforeEach('mockReceiveOneMessage', () => {
             first_message = mockIncompleteButSufficientSqsMessage('first');
-            receive_message_stub.onCall(0).yieldsAsync(null, [first_message]);
-            receive_message_stub.onCall(1).yieldsAsync(null, []);
+            receive_message_stub.onCall(0).yieldsAsync(null, mockReceivedMessageResponse(first_message));
+            receive_message_stub.onCall(1).yieldsAsync(null, mockReceivedMessageResponse(null));
           });
 
           beforeEach('mockFailedSend', () => {
@@ -242,4 +242,9 @@ function mockIncompleteButSufficientSqsMessage(appendix) {
     MD5OfBody: `MD5OfBody-${appendix}`,
     Body: `Body-${appendix}`,
   };
+}
+
+function mockReceivedMessageResponse(message) {
+  const messages = message ? [message] : [];
+  return { Messages: messages };
 }
