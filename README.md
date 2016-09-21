@@ -3,6 +3,11 @@ Re-drives messages from one SQS queue to another, e.g. to re-process "dead lette
 
 Meant to be triggered by an SNS notification and run on a Lambda.
 
+## Example usage
+
+1. Deploy to Lambda (having all permissions needed as defined by AWS and subscribing to SNS topic)
+2. Trigger with SNS notification, having stringified JSON as body (subject can be empty or any value; it will be ignored)
+
 ## Message Redriver API
 
 ### `redriveMessages({ sns_event }) -> Promise`
