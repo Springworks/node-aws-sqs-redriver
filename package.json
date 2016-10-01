@@ -51,6 +51,6 @@
     "semantic-release": "4.3.5"
   },
   "dependencies": {
-    "@springworks/input-validator": "4.0.24"
+    "@springworks/input-validator": "4.0.25"
   }
 }
