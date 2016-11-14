@@ -1,5 +1,6 @@
 import { validateSchema, joi } from '@springworks/input-validator';
 import sqs_instance from './sqs-instance';
+import logger from './logger';
 
 const deserialized_queue_params_schema = joi.object().required().keys({
   source_queue_url: joi.string().uri().required(),
@@ -50,10 +51,10 @@ function fetchMessagesUntilEmpty({ source_queue_url, target_queue_url }) {
 }
 
 function redriveMessage({ sqs_message, source_queue_url, target_queue_url }) {
-  console.log('Redriving message with receipt handle %s...', sqs_message.ReceiptHandle);
+  logger.info('Redriving message with receipt handle %s...', sqs_message.ReceiptHandle);
   return sendMessage({ message_body: sqs_message.Body, target_queue_url })
       .then(() => deleteMessage({ receipt_handle: sqs_message.ReceiptHandle, source_queue_url }))
-      .then(() => console.log(`Message moved from ${source_queue_url} to ${target_queue_url}`))
+      .then(() => logger.info(`Message moved from ${source_queue_url} to ${target_queue_url}`))
       .then(() => null);
 }
 
@@ -74,7 +75,7 @@ function receiveMessage({ source_queue_url }) {
         return;
       }
 
-      console.log('No more messages received in queue...');
+      logger.info('No more messages received in queue...');
       resolve(null);
     });
   });
@@ -119,7 +120,7 @@ const api = {
         .then(extractQueueUrls)
         .then(fetchMessagesUntilEmpty)
         .catch(err => {
-          console.warn('redriveMessages failed: %s', err);
+          logger.warn('redriveMessages failed: %s', err);
           throw err;
         });
   },
