@@ -1,14 +1,20 @@
-const redriver = require('./build/sqs-redriver');
-
-exports.handler = function(sns_event) {
-  console.log('Starting queue redrive...');
+exports.handler = function(sns_event, context, callback) {
+  if (context && context.functionName === 'ReDriveQueueMessages') {
+    process.env.NODE_ENV = 'production';
+    context.callbackWaitsForEmptyEventLoop = false;
+  }
+  const logger = require('./build/logger');
+  const redriver = require('./build/sqs-redriver');
+  logger.info('Starting queue redrive...');
 
   redriver.default.redriveMessages({ sns_event: sns_event })
       .then(() => {
-        console.log('Queue redrive complete');
+        logger.info('Queue redrive complete');
+        callback();
       })
       .catch(err => {
-        console.log('Queue redrive failed', err);
+        logger.trace('Queue redrive failed', err);
+        callback(err);
       });
 };
 

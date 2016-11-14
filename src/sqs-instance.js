@@ -1,3 +1,5 @@
 import AWS from 'aws-sdk';
+import config from 'config';
 
-export default new AWS.SQS({ apiVersion: '2012-11-05' });
+const api_version = config.get('aws.api_version');
+export default new AWS.SQS({ api_version: api_version });
