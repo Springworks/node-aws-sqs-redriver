@@ -6,7 +6,7 @@ Meant to be triggered by an SNS notification and run on a Lambda.
 ## Example usage
 
 1. Deploy to Lambda (having all permissions needed as defined by AWS and subscribing to SNS topic)
-2. Trigger with SNS notification, having stringified JSON as body (subject can be empty or any value; it will be ignored), e.g: 
+2. Trigger with SNS notification, having stringified JSON as body (subject can be any value, but not empty), e.g: 
   `{"source_queue_url":"https://queue.amazonaws.com/80398EXAMPLE/MyDLQ","target_queue_url":"https://queue.amazonaws.com/80398EXAMPLE/MyQueue"}`
 
 ## Message Redriver API
