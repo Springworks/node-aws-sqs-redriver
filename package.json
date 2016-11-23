@@ -53,6 +53,6 @@
   "dependencies": {
     "@springworks/logger-factory": "3.4.0",
     "config": "1.24.0",
-    "@springworks/input-validator": "4.0.26"
+    "@springworks/input-validator": "4.1.0"
   }
 }
