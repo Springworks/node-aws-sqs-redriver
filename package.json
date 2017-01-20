@@ -33,7 +33,7 @@
     "@springworks/test-harness": "1.5.2",
     "aws-sdk": "^2.7.21",
     "babel-cli": "6.18.0",
-    "babel-core": "6.21.0",
+    "babel-core": "6.22.1",
     "babel-eslint": "7.1.1",
     "babel-plugin-transform-runtime": "6.15.0",
     "babel-plugin-transform-strict-mode": "6.18.0",
