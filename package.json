@@ -51,7 +51,7 @@
     "semantic-release": "^6.3.2"
   },
   "dependencies": {
-    "@springworks/input-validator": "^5.0.3",
+    "@springworks/input-validator": "^5.0.4",
     "@springworks/logger-factory": "^3.5.1",
     "config": "^1.25.1"
   }
