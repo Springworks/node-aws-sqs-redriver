@@ -52,7 +52,7 @@
   },
   "dependencies": {
     "@springworks/input-validator": "^5.0.3",
-    "@springworks/logger-factory": "^3.5.1",
+    "@springworks/logger-factory": "^4.0.3",
     "config": "^1.25.1"
   }
 }
