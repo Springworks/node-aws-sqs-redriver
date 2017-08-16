@@ -48,7 +48,7 @@
     "istanbul": "^0.4.5",
     "lodash.clonedeep": "^4.5.0",
     "mocha": "^3.2.0",
-    "semantic-release": "^6.3.2"
+    "semantic-release": "^7.0.1"
   },
   "dependencies": {
     "@springworks/input-validator": "^5.0.3",
