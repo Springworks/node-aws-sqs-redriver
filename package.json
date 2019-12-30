@@ -6,11 +6,7 @@
     "lint": "eslint --cache .",
     "build": "rm -rf build && babel src --out-dir build",
     "prepublish": "npm run build",
-    "test": "NODE_ENV=test istanbul cover _mocha",
-    "test-no-cov": "NODE_ENV=test mocha",
-    "test-acceptance": "NODE_ENV=test istanbul cover _mocha -- --fgrep '/acceptance/'",
-    "test-component": "NODE_ENV=test istanbul cover _mocha -- --fgrep '/component/'",
-    "test-unit": "NODE_ENV=test istanbul cover _mocha -- --fgrep '/unit/'",
+    "test": "NODE_ENV=test mocha",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
   "repository": {
@@ -30,29 +26,28 @@
   },
   "homepage": "https://github.com/Springworks/node-aws-sqs-redriver#readme",
   "devDependencies": {
-    "@springworks/test-harness": "^1.5.5",
+    "@springworks/test-harness": "^3.0.2",
     "aws-sdk": "^2.7.21",
     "babel-cli": "^6.22.2",
     "babel-core": "^6.23.1",
-    "babel-eslint": "^7.1.1",
+    "babel-eslint": "^10.0.3",
     "babel-plugin-transform-runtime": "^6.22.0",
     "babel-plugin-transform-strict-mode": "^6.22.0",
     "babel-preset-es2015-node4": "^2.1.1",
     "babel-register": "^6.23.0",
-    "eslint": "^4.3.0",
+    "eslint": "^6.8.0",
     "eslint-config-springworks": "^7.0.7",
     "eslint-plugin-import": "^2.2.0",
-    "eslint-plugin-mocha": "^4.8.0",
+    "eslint-plugin-mocha": "^6.2.2",
     "eslint-plugin-should-promised": "^2.0.0",
     "eslint-plugin-springworks": "^2.0.1",
-    "istanbul": "^0.4.5",
     "lodash.clonedeep": "^4.5.0",
-    "mocha": "^3.2.0",
-    "semantic-release": "^6.3.2"
+    "mocha": "^6.2.2",
+    "semantic-release": "^15.14.0"
   },
   "dependencies": {
-    "@springworks/input-validator": "^5.0.3",
-    "@springworks/logger-factory": "^4.0.3",
-    "config": "^1.25.1"
+    "@springworks/input-validator": "^3002.19.9",
+    "@springworks/logger-factory": "^3002.19.9",
+    "config": "^3.2.4"
   }
 }

@@ -1,7 +1,4 @@
---ui bdd
---check-leaks
---recursive
---slow 200
---reporter spec
---compilers js:babel-core/register
 --require @springworks/test-harness
+--require babel-core/register
+--recursive
+--exit
