@@ -43,7 +43,7 @@
     "eslint-plugin-springworks": "^2.0.1",
     "lodash.clonedeep": "^4.5.0",
     "mocha": "^6.2.2",
-    "semantic-release": "^15.14.0"
+    "semantic-release": "^6.3.2"
   },
   "dependencies": {
     "@springworks/input-validator": "^3002.19.9",
