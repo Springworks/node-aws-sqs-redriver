@@ -12,6 +12,8 @@ notifications:
   email: false
 before_script:
   - npm prune
+before_install:
+  - echo "//registry.npmjs.org/:_authToken=\${NPM_TOKEN}" > .npmrc
 after_success:
   - npm run semantic-release
 branches:
