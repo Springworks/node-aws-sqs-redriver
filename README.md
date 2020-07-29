@@ -1,7 +1,5 @@
 # AWS SQS Redriver
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/Springworks/node-aws-sqs-redriver.svg)](https://greenkeeper.io/)
-
 Re-drives messages from one SQS queue to another, e.g. to re-process "dead letters".
 
 Meant to be triggered by an SNS notification and run on a Lambda.
